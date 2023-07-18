@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{- block "head" . }}{{- end }}
+    <meta charset="UTF-8">
+    {{- partial "head.html" . -}}
+    </head>
+    <body>
+            {{- partial "header.html" . -}}
+            <div id="scroll-area" class="w-full h-[100vh] overflow-auto" >
+                <div id="content" class="w-full pt-[4rem]">
+                {{- block "main" . }}{{- end }}
+                </div>
+                {{- partial "footer.html" . -}}
+            </div>
+    </body>
+</html>
