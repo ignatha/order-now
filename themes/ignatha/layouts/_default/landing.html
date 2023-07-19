@@ -21,20 +21,20 @@
                 <span class="text-[30px] font-bold bg-yellow-300 text-black m-auto">JAM TANGAN LUXURY DIGITAL</span>
                 <div class="mb-4"></div>
                 {{ with resources.Get "/img/jam1.jpg" }}
-                    {{ with .Resize (printf "%dx%d webp" .Width .Height) }}
-                        <img src="{{ .RelPermalink }}" alt="Jam Tangan" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+                    {{ with .Resize (printf "%dx%d webp" 600 600) }}
+                        <img class="w-full" src="{{ .RelPermalink }}" alt="Jam Tangan" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
                     {{ end }}
                 {{ end }}
 
                 {{ with resources.Get "/img/jam2.jpg" }}
-                    {{ with .Resize (printf "%dx%d webp" .Width .Height) }}
-                        <img src="{{ .RelPermalink }}" alt="Jam Tangan trendi" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+                    {{ with .Resize (printf "%dx%d webp" 600 600) }}
+                        <img class="w-full" src="{{ .RelPermalink }}" alt="Jam Tangan trendi" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
                     {{ end }}
                 {{ end }}
 
                 {{ with resources.Get "/img/jam3.jpg" }}
-                    {{ with .Resize (printf "%dx%d webp" .Width .Height) }}
-                        <img src="{{ .RelPermalink }}" alt="Jam Tangan luxury" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+                    {{ with .Resize (printf "%dx%d webp" 600 600) }}
+                        <img class="w-full" src="{{ .RelPermalink }}" alt="Jam Tangan luxury" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
                     {{ end }}
                 {{ end }}
                         <div class="my-4 flex justify-center">
