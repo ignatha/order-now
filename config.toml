@@ -1,7 +1,10 @@
 baseURL = '/'
 languageCode = 'en-id'
-title = 'Ignatha blogs'
+title = 'Shopping Fair'
 theme = 'ignatha'
+
+[params]
+  fb_pixel = '858533401898466'
 
 [minify]
     minifyOutput = true
