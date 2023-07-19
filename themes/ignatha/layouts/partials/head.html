@@ -7,7 +7,6 @@
 {{ $sass := resources.Get "css/main.scss" | resources.ToCSS }}
 {{ $style := $sass | resources.PostCSS | resources.Minify  }}
 {{ $st := (printf "%s?v=%s" $style.Permalink $random ) }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 
 <link rel="stylesheet" href="{{  $st  }}">
 
@@ -15,4 +14,3 @@
 {{ $j := (printf "%s?v=%s" $js.Permalink $random )  }}
 
 <script src="{{ $j }}"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
