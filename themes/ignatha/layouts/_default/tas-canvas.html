@@ -121,7 +121,10 @@
 
             function onwaClick()
             {  
-                fbq('track', 'AddToCart');
+                fbq('track', 'Purchase', {
+                    value: 100000,
+                    currency: "IDR",
+                    });
             }
 
             // Get the button:
