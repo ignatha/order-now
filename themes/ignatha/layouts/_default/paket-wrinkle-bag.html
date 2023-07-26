@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    {{ $seed := "123456789" }}
+    {{ $random := delimit (shuffle (split (md5 $seed) "" )) "" }}
+
+    {{ $sass := resources.Get "css/main.scss" | resources.ToCSS }}
+    {{ $style := $sass | resources.PostCSS | resources.Minify  }}
+    {{ $st := (printf "%s?v=%s" $style.Permalink $random ) }}
+
+    <link rel="stylesheet" href="{{  $st  }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NF54Q44F');</script>
+    <!-- End Google Tag Manager -->
+
+    <title>{{ .Site.Title }} - {{ .Title }}</title>
+    </head>
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF54Q44F"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <div class="w-full bg-white">
+            <div class="w-full max-w-[800px] m-auto">
+                <section class="w-full p-4 text-center bg-[#fbab16]">
+                    <h2 class="text-3xl text-black font-black">PAKET OUTFIT KEREN Buat Kamu!!</h2>
+                    <span class="text-[30px] font-extralight bg-[#ffff00] text-red-700 m-auto">BELI 1 DAPAT 3</span>
+                    <h2 class="text-xl text-white font-light">WRINKLE BAG STYLISH + DOMPET IMPORT + KACAMATA KOREA</h2>
+                </section>
+                <section class="w-full mt-4 p-4 text-center">
+                {{ with resources.Get "/img/wrinkle1.jpg" }}
+                    {{ with .Resize (printf "%dx%d webp" 600 600) }}
+                        <img class="w-full" src="{{ .RelPermalink }}" alt="Wrinkle Bag" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+                    {{ end }}
+                {{ end }}
+
+                        <div class="my-4 p-4 bg-[#fcf8e3] rounded text-left">
+                            <span class="text-[#8a6d3b] text-[16px] font-bold">KEUNTUNGAN yang Kamu Dapatkan:</span>
+                            <ul class="text-[#8a6d3b] text-left font-normal pl-4 text-base list-disc">
+                                <li>Kesan MODIS bisa bikin Kamu tampil lebih PEDE.</li>
+                                <li>Bisa Kamu pakai untuk semua aktivitas (nongkrong, kondangan, pesta, traveling, dll)</li>
+                                <li>Kapasitas besar (26cm X 14cm X 6cm) sehingga muat semua barang keperluan Kamu</li>
+                                <li>Cocok juga buat kado untuk orang tersayang</li>
+                                <li>dan GARANSI AWET tentunya</li>
+                                <li>Bebas pilih warna sesuai gaya : Blue, Black, White, Purple</li>
+                            </ul>
+                        </div>
+                </section>
+                <section class="w-full mt-4 p-4 text-center">
+                    <span class="text-[30px] font-bold bg-yellow-300 text-black m-auto">++ GRATIS BONUS dibawah ini :</span>
+                    {{ with resources.Get "/img/dompet.jpg" }}
+                        {{ with .Resize (printf "%dx%d webp" 600 600) }}
+                            <img class="w-full" src="{{ .RelPermalink }}" alt="dompet" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+                        {{ end }}
+                    {{ end }}
+                    {{ with resources.Get "/img/kacamata.jpg" }}
+                        {{ with .Resize (printf "%dx%d webp" 600 600) }}
+                            <img class="w-full" src="{{ .RelPermalink }}" alt="Kacamata" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+                        {{ end }}
+                    {{ end }}
+                </section>
+
+                <section class="w-full mt-4 p-4 text-center">
+                    <span class="text-[30px] font-bold bg-yellow-300 text-black m-auto">Kepuasan Pelanggan :</span>
+                    <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                        <!-- Carousel wrapper -->
+                        <div class="relative h-[667px] overflow-hidden rounded-lg">
+                            <!-- Item 1 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                {{ with resources.Get "/img/testi-bag1.jpg" }}
+                                        {{ with .Resize (printf "%dx%d webp" 300 667) }}
+                                        <img src="{{ .RelPermalink }}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Testi">
+                                        {{ end }}
+                                {{ end }}
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                {{ with resources.Get "/img/testi-bag2.jpg" }}
+                                        {{ with .Resize (printf "%dx%d webp" 300 667) }}
+                                        <img src="{{ .RelPermalink }}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Testi">
+                                        {{ end }}
+                                {{ end }}
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                {{ with resources.Get "/img/testi-bag3.jpg" }}
+                                        {{ with .Resize (printf "%dx%d webp" 300 667) }}
+                                        <img src="{{ .RelPermalink }}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Testi">
+                                        {{ end }}
+                                {{ end }}
+                            </div>
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                {{ with resources.Get "/img/testi-bag4.jpg" }}
+                                        {{ with .Resize (printf "%dx%d webp" 300 667) }}
+                                        <img src="{{ .RelPermalink }}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Testi">
+                                        {{ end }}
+                                {{ end }}
+                            </div>
+                        </div>
+                        <!-- Slider indicators -->
+                        <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                        </div>
+                        <!-- Slider controls -->
+                        <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                                </svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
+                    </div>
+                </section>
+                
+                
+                <section class="w-full mt-4 p-4 text-center">
+                    <div class="w-full bg-white flex flex-col justify-center">
+                        <span class="text-[28px] font-bold text-[red] mb-4">Stok PROMO kami semakin menipis setiap harinya, pastikan Kamu kebagian STOK PROMO dari kami!!</span>
+                        <span class="text-[18px] font-bold text-[#ff9900] mb-4">Harga Normal</span>
+                        <span class="text-[18px] font-bold text-[red] mb-4" ><strike>Rp 299.000</strike></span>
+                        <span class="text-[18px] font-bold text-black mb-4">Harga Promo Cuci Gudang</span>
+                        <span class="text-[30px] font-bold text-[red] bg-[yellow] mb-4" >Rp 125.000</span>
+                        <p class="text-[18px] font-bold text-[#ff9900] mb-4">All in - Dapat 3 produk</p>
+
+                        <span class="text-[18px] font-bold text-black mb-4">COD Diganti baru jika rusak karena pengiriman</span>
+                        {{ with resources.Get "/img/cod.jpg" }}
+                            {{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+                                <img class="self-center mb-4" src="{{ .RelPermalink }}" alt="cod" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+                            {{ end }}
+                        {{ end }}
+                        <span class="text-[30px] font-bold text-[red] mb-4">DAPATKAN SUBSIDI ONGKIR ( TANPA SYARAT )</span>
+                        {{ with resources.Get "/img/arrow.gif" }}
+                            {{ with .Resize (printf "%dx%d gif" .Width .Height) }}
+                                <img class="self-center mb-4" src="{{ .RelPermalink }}" alt="arrow" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+                            {{ end }}
+                        {{ end }}
+                        <a href="whatsapp://send?phone=6281259750372&text=Hallo%20admin%2C%20apakah%20ada%20subsidi%20ongkir%20untuk%20pembelian%20paket%20WRINKLE%20BAG%20STYLISH%20%3F" target="_blank" class="w-[400px] py-4 font-bold bg-[#61CE70] text-[20px] m-auto text-white flex flex-row justify-center mb-4 border-dashed border-2 border-[red]">
+                            <i class="w-[15px] mr-4 relative self-center"><svg style="fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg></i>
+                            Claim Subsidi Ongkir !</a>
+                        <span class="text-[18px] font-bold text-black mb-4">BISA BAYAR DIRUMAH</span>
+                    </div>
+                </section>
+                <div class="w-full bg-white flex flex-col justify-center">
+                    {{ with resources.Get "/img/benefit.png" }}
+                        {{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+                            <img class="self-center p-4" src="{{ .RelPermalink }}" alt="arrow" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+                        {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        <a id="button" onclick="topFunction()">
+            <svg xmlns="http://www.w3.org/2000/svg" style="fill: white;width: 26px;height: 26px;margin:auto;bottom:10px;left: 13px;position: absolute;" viewBox="0 0 320 512"><path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"></path></svg>
+        </a>
+
+        <script>
+
+            // Get the button:
+            let mybutton = document.getElementById("button");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.classList.add("show")
+            } else {
+                mybutton.classList.remove("show");
+            }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+        </script>
+
+        {{ $js := resources.Get "js/main.js" | js.Build "js/main.js" | resources.Minify }}
+        {{ $j := (printf "%s?v=%s" $js.Permalink $random )  }}
+
+        <script src="{{ $j }}"></script>
+    </body>
+    
+</html>
